@@ -337,9 +337,9 @@ PythonQtPrivate::~PythonQtPrivate() {
       delete i.next().value();
     }
   }
-  PythonQtConv::global_valueStorage.clear();
-  PythonQtConv::global_ptrStorage.clear();
-  PythonQtConv::global_variantStorage.clear();
+  PythonQtConv::global_valueStorage().clear();
+  PythonQtConv::global_ptrStorage().clear();
+  PythonQtConv::global_variantStorage().clear();
 
   PythonQtMethodInfo::cleanupCachedMethodInfos();
 }
@@ -1299,9 +1299,9 @@ PythonQtPrivate::PythonQtPrivate()
   _systemExitExceptionHandlerEnabled = false;
   _debugAPI = new PythonQtDebugAPI(this);
 
-  PythonQtConv::global_valueStorage.init();
-  PythonQtConv::global_ptrStorage.init();
-  PythonQtConv::global_variantStorage.init();
+  PythonQtConv::global_valueStorage().init();
+  PythonQtConv::global_ptrStorage().init();
+  PythonQtConv::global_variantStorage().init();
 }
 
 void PythonQtPrivate::setupSharedLibrarySuffixes()

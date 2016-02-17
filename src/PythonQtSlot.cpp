@@ -67,9 +67,9 @@ bool PythonQtCallSlot(PythonQtClassInfo* classInfo, QObject* objectToCall, PyObj
   PythonQtValueStoragePosition globalValueStoragePos;
   PythonQtValueStoragePosition globalPtrStoragePos;
   PythonQtValueStoragePosition globalVariantStoragePos;
-  PythonQtConv::global_valueStorage.getPos(globalValueStoragePos);
-  PythonQtConv::global_ptrStorage.getPos(globalPtrStoragePos);
-  PythonQtConv::global_variantStorage.getPos(globalVariantStoragePos);
+  PythonQtConv::global_valueStorage().getPos(globalValueStoragePos);
+  PythonQtConv::global_ptrStorage().getPos(globalPtrStoragePos);
+  PythonQtConv::global_variantStorage().getPos(globalVariantStoragePos);
 
   recursiveEntry++;
 
@@ -233,9 +233,9 @@ bool PythonQtCallSlot(PythonQtClassInfo* classInfo, QObject* objectToCall, PyObj
   recursiveEntry--;
 
   // reset the parameter storage position to the stored pos to "pop" the parameter stack
-  PythonQtConv::global_valueStorage.setPos(globalValueStoragePos);
-  PythonQtConv::global_ptrStorage.setPos(globalPtrStoragePos);
-  PythonQtConv::global_variantStorage.setPos(globalVariantStoragePos);
+  PythonQtConv::global_valueStorage().setPos(globalValueStoragePos);
+  PythonQtConv::global_ptrStorage().setPos(globalPtrStoragePos);
+  PythonQtConv::global_variantStorage().setPos(globalVariantStoragePos);
 
   *pythonReturnValue = result;
   
